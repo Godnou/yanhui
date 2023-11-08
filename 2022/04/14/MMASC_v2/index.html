@@ -1,0 +1,141 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+	<meta charset="utf-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+	<meta name="theme-color" content="#33474d">
+	<title>MMASC-0.0.2 | 欢迎</title>
+	<link rel="stylesheet" href="/css/style.css" />
+	
+      <link rel="alternate" href="/atom.xml" title="欢迎" type="application/atom+xml">
+    
+<meta name="generator" content="Hexo 6.3.0"></head>
+
+<body> 	
+	<header class="header">
+		<nav class="header__nav">
+			
+		</nav>
+		<h1 class="header__title"><a href="/">欢迎</a></h1>
+		<h2 class="header__subtitle">Welcome</h2>
+	</header>
+
+	<main>
+		<article>
+	
+		<h1>MMASC-0.0.2</h1>
+	
+	<div class="article__infos">
+		<span class="article__date">2022-04-14</span><br />
+		
+		
+			<span class="article__tags">
+			  	<a class="article__tag-none-link" href="/tags/FEM/" rel="tag">FEM</a>
+			</span>
+		
+	</div>
+
+	
+
+	
+		<p>MMASC is a nonlinear finite element package for simulating mechanical behaviors of soft composites subjected to external stimuli in a multi-physics context.</p>
+<p>The main features of the package are as following: </p>
+<ol>
+<li><p>It supports Tet&#x2F;Hex meshes.</p>
+</li>
+<li><p>It is coded in modern Fortran and has an interface for UMAT&#x2F;VUMAT, UEL&#x2F;VUEL etc.</p>
+</li>
+<li><p>It supports multi-physics nonlinear analysis, either static or dynamic, either implicit or explicit.</p>
+</li>
+<li><p>It supports two-scale analysis with options of 3 different homogenization methods.</p>
+<ul>
+<li>Affine method</li>
+<li>Periodic method</li>
+<li>Mixed method</li>
+</ul>
+</li>
+<li><p>It has a unique math-core and is independent of external libraries.</p>
+</li>
+</ol>
+<p>The current released version is only for electromechanical coupling problems.</p>
+<p>The following is an example about coupling electric field and displacement field analysis for rubber-like materials (such as elastomers and gels). The problem is defined as shown in Fig. 1. </p>
+<p><figure class="figure"><img src="/imag/MMASC_1.png" alt="Fig.1"><figcaption class="figure__caption">Fig.1</figcaption></figure></p>
+<p>Four different analyses procedures (see Fig. 2) are incorporated into this version of MMASC, and each of the procedure defines two analysis steps. </p>
+<p>The first step is controlled by mechanical pre-stress and the second step is controlled by electric potential or charge. In order to compare the two-scale procedure and one-scale procedure, this example just assumes that both macroscale domain and microscale unit cell are uniform. The results are shown in Fig. 3. While this example is simple, its extension to cases for heterogeneous materials is natural. Please consult to the user manual of MMASC.</p>
+<p><figure class="figure"><img src="/imag/MMASC_3.png" alt="Fig.3"><figcaption class="figure__caption">Fig.3</figcaption></figure></p>
+<p>You can find the program(Windows) here:</p>
+<p><a href="/files/MMASC.exe">MMASC</a></p>
+<p>The input files for the example here:</p>
+<p><a href="/files/macro.inp">macro.inp</a><br><a href="/files/micro.inp">micro.inp</a></p>
+<p>You may download these 3 files in a folder and then open a terminal to run the program.</p>
+<p>You are free to redistribute this version of MMASC. And I hope the program is helpful to your research.</p>
+
+	
+
+	
+		<span class="different-posts"><a href="/2022/04/14/MMASC_v2/" onclick="window.history.go(-1); return false;">⬅️ Go back </a></span>
+
+	
+
+</article>
+
+	</main>
+
+	<footer class="footer">
+	<div class="footer-content">
+		
+	      <div class="footer__element">
+	<p> Welcome to Yanhui's blog. </p>
+    <p> Email: jyhnl@njust.edu.cn </p>	    
+</div>
+
+	    
+	      <div class="footer__element">
+	<!--<h5>Check out</h5>-->
+	<ul class="footer-links">
+		<li class="footer-links__link"><a href="/archives">Archive</a></li>
+		<!---->
+		<!--<li class="footer-links__link"><a href="/atom.xml">RSS</a></li>-->
+	    <!---->
+		<!--<li class="footer-links__link"><a href="/about">about page</a></li>-->
+		<li class="footer-links__link"><a href="/tags">Tags</a></li>
+		<li class="footer-links__link"><a href="/categories">Categories</a></li>
+	</ul>
+</div>
+
+	    
+	</div>
+
+
+</footer>
+
+<!--    <!-- mathjax config similar to math.stackexchange -->
+<script type="text/x-mathjax-config">
+  MathJax.Hub.Config({
+    tex2jax: {
+      inlineMath: [ ['$','$'], ["\\(","\\)"] ],
+      processEscapes: true
+    }
+  });
+</script>
+<script type="text/x-mathjax-config">
+    MathJax.Hub.Config({
+      tex2jax: {
+        skipTags: ['script', 'noscript', 'style', 'textarea', 'pre', 'code']
+      }
+    });
+</script>
+<script type="text/x-mathjax-config">
+    MathJax.Hub.Queue(function() {
+        var all = MathJax.Hub.getAllJax(), i;
+        for(i=0; i < all.length; i += 1) {
+            all[i].SourceElement().parentNode.className += ' has-jax';
+        }
+    });
+</script>
+<script type="text/javascript" src="https://cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML">
+</script>	-->
+</body>
+
+</html>

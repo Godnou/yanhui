@@ -1,0 +1,77 @@
+*Heading
+*Preprint, echo=NO, model=NO, history=NO, contact=NO
+*Part, name=Part-1
+*Node
+      1,           1.,           1.,           1.
+      2,           1.,           0.,           1.
+      3,           1.,           1.,           0.
+      4,           1.,           0.,           0.
+      5,           0.,           1.,           1.
+      6,           0.,           0.,           1.
+      7,           0.,           1.,           0.
+      8,           0.,           0.,           0.
+*Element, type=C3D8H
+1, 5, 6, 8, 7, 1, 2, 4, 3
+*Nset, nset=_PickedSet2, internal, generate
+ 1,  8,  1
+*Elset, elset=_PickedSet2, internal
+ 1,
+*Solid Section, elset=_PickedSet2, material=user
+,
+*End Part
+*Assembly, name=Assembly 
+*Instance, name=Part-1-1, part=Part-1
+*End Instance 
+*Nset, nset=Set-1, instance=Part-1-1
+ 1,
+*Nset, nset=Set-2, instance=Part-1-1
+ 1, 2, 5, 6
+*Nset, nset=_PickedSet4, internal, instance=Part-1-1
+ 3, 4, 7, 8
+*Elset, elset=_PickedSet4, internal, instance=Part-1-1
+ 1,
+*Nset, nset=_PickedSet5, internal, instance=Part-1-1, generate
+ 5,  8,  1
+*Elset, elset=_PickedSet5, internal, instance=Part-1-1
+ 1,
+*Nset, nset=_PickedSet6, internal, instance=Part-1-1, generate
+ 2,  8,  2
+*Elset, elset=_PickedSet6, internal, instance=Part-1-1
+ 1,
+*Nset, nset=_PickedSet7, internal, instance=Part-1-1
+ 1, 2, 5, 6
+*Elset, elset=_PickedSet7, internal, instance=Part-1-1
+ 1,
+*End Assembly
+*Amplitude, name=Amp-1, time=TOTAL TIME
+             0.,              0.,              1.,              1.,              2.,              0.
+** ----------------------------------------------------------------
+** User Material Interface
+**
+*Material, name=user
+*Depvar
+      6,
+*User Material, constants=5
+18000.,  110.,42000.,   55., 4000.
+** ----------------------------------------------------------------
+*Step, name=Step-1, nlgeom=YES, inc=10000
+*Static, direct
+0.01, 2.,  
+*Boundary
+_PickedSet4, 3, 3
+*Boundary
+_PickedSet5, 1, 1
+*Boundary
+_PickedSet6, 2, 2
+*Boundary, amplitude=Amp-1
+_PickedSet7, 3, 3, 5.
+*Restart, write, frequency=0
+*Print, solve=NO
+*Output, field, variable=PRESELECT
+*Output, history
+*Node Output, nset=Set-1
+U3,
+*Node Output, nset=Set-2
+RF3,
+*Output, history, variable=PRESELECT
+*End Step
